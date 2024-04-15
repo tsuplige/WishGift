@@ -47,4 +47,4 @@ Les contributions à ce projet sont les bienvenues ! Si vous souhaitez contribue
 
 ## Auteurs
 
-- [Thomas Supligeon](lien_vers_votre_profil_github) - Développeur Principal
+- [Thomas Supligeon](https://github.com/tsuplige) - Développeur Principal
