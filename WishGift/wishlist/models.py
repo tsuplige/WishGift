@@ -27,6 +27,7 @@ class Wishlist(models.Model):
                                  on_delete=models.CASCADE,
                                  related_name='wishlist')
     items = models.ManyToManyField(Item)
+    created = models.DateTimeField(auto_now_add=True)
 
     def add_item(self, item):
         if not self.items.filter(pk=item.pk).exists():
