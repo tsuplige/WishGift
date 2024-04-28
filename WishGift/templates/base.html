@@ -18,37 +18,38 @@
     <header>
         <nav class="navbar navbar-expand-lg " style="background-color:#874BDB;">
             <div class="container-fluid">
-              <a class="navbar-brand text-white" href="#">WishGift</a>
+              <a class="navbar-brand text-white" href="{% url 'home' %}">WishGift</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <!-- {% if user.is_authenticated  %}
+              {% if user.is_authenticated  %}
               <div class="d-flex flex-row-reverse collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}">Flux</a>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="">Flux</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="{% url 'posts' %}">Posts</a>
+                    <a class="nav-link active text-white" aria-current="page" href="">Posts</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="{% url 'subscription' %}">Abonnement</a>
+                    <a class="nav-link active text-white" aria-current="page" href="">Abonnement</a>
                   </li>
                   {% comment %} <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
-                  </li> {% endcomment %}
+                  </li> {% endcomment %} -->
                   <li class="nav-item">
                     <a class="nav-link active text-white  " href="{% url 'logout' %}">Se déconnecter</a>
                   </li>
                 </ul>
               </div>
-              {% endif %} -->
+              {% endif %}
             </div>
           </nav>
       </nav>
     </header>
-
-    {% block content %}{% endblock content %}
+<main>
+  {% block content %}{% endblock content %}
+</main>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
