@@ -26,7 +26,7 @@ class Wishlist(models.Model):
     owner = models.OneToOneField(settings.AUTH_USER_MODEL,
                                  on_delete=models.CASCADE,
                                  related_name='wishlist')
-    items = models.ManyToManyField(Item)
+    items = models.ManyToManyField(Item, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def add_item(self, item):

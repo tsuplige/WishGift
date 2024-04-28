@@ -10,4 +10,3 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(Wishlist)
 class UserFollowAdmin(admin.ModelAdmin):
     list_display = ('owner', 'created')
-
