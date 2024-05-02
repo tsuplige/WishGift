@@ -3,13 +3,22 @@
 <ul class="wishlist list-group list-group-item-action active">
 
   {% for item in items %}
-  <li class="list-group-item list-group-item-action">
+  <li class="list-group-item list-group-item-action wishlist-item">
       <h3>{{ item.name }}</h3>
-      <!-- <p>Description: {{ item.description }}</p>
+      <aside class="item-details">
+<p>Description: {{ item.description }}</p>
       <p>Prix: {{ item.price }}</p>
-      <p>Liens: <a href="{{ item.link }}">{{ item.link }}</a></p> -->
+      <p>Liens: <a href="{{ item.link }}">{{ item.link }}</a></p>
+      <a class="btn btn-outline-primary">Modifier</a>
+      <a class="btn btn-outline-danger">Supprimer</a>
+      </aside>
+      
   </li>
 {% endfor %}
+<a href="" class="btn btn-primary">
+  <h3>Ajouter</h3>
+</a>
+
   <!-- <li class="list-group-item">Cras justo odio</li>
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item">Morbi leo risus</li>
@@ -22,5 +31,21 @@
     margin: auto;
     width: 40%;
   }
+
+  .item-details {
+    display: none;
+  }
 </style>
+
+<script>
+  const wishlistItems = document.querySelectorAll('.wishlist-item');
+  wishlistItems.forEach(item => {
+      item.addEventListener('click', () => {
+          item.querySelector('.item-details').style.display = 'block';
+      });
+      item.addEventListener('mouseleave', () => {
+          item.querySelector('.item-details').style.display = 'none';
+      });
+  });
+</script>
   {% endblock content %}
