@@ -4,6 +4,9 @@ from django.conf import settings
 
 class Item(models.Model):
     name = models.CharField(max_length=100)
+    user = models.ForeignKey(
+        to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name='have_create', blank=True, null=True)
     description = models.TextField()
     price = models.FloatField(blank=True, null=True)
     link = models.URLField(blank=True, null=True)
