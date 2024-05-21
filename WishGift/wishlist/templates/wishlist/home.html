@@ -10,8 +10,10 @@
       <p>Prix: {{ item.price }}</p>
       <p>Liens: <a href="{{ item.link }}">{{ item.link }}</a></p>
       <a class="btn btn-outline-primary">Modifier</a>
-      <a class="btn btn-outline-danger">Supprimer</a>
-      </aside>
+      <form method="post" action="{% url 'delete' item.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+      </form>
       
   </li>
 {% endfor %}

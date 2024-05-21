@@ -33,4 +33,4 @@ def item_delete(request, id):
             return redirect('home')
         return redirect('home')
 
-    return render(request, 'app/item_delete.html', {'item': item})
+    return redirect('home')

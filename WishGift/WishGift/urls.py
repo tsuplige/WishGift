@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from wishlist.views import index
+from wishlist.views import index, item_delete
 from authentication.views import login_page, logout_user, signup_page
 
 urlpatterns = [
@@ -26,5 +26,6 @@ urlpatterns = [
     path('signup/', signup_page, name='signup'),
 
     path('home/', index, name="home"),
+    path('delete/<int:id>/', item_delete, name='delete'),
     # path('my-list/', mylist),
 ]
