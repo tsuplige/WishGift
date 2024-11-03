@@ -8,7 +8,7 @@
       <aside class="item-details">
 <p>Description: {{ item.description }}</p>
       <p>Prix: {{ item.price }}</p>
-      <p>Liens: <a href="{{ item.link }}">{{ item.link }}</a></p>
+      <p><a href="{{ item.link }}" target="_blank">Lien</a></p>
       <a class="btn btn-outline-primary">Modifier</a>
       <form method="post" action="{% url 'delete' item.id %}" style="display:inline;">
         {% csrf_token %}
@@ -17,10 +17,33 @@
       
   </li>
 {% endfor %}
-<a href="" class="btn btn-primary">
+
+<a href="#" id="add-item-btn" class="btn btn-primary">
   <h3>Ajouter</h3>
 </a>
 
+<div id="add-item-form" style="display: none; padding: 20px; background: #f7f7f7; margin-top: 20px;">
+  <form method="post" action="{% url 'add_item' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Nom de l'élément</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="price">Prix</label>
+      <input type="number" class="form-control" id="price" name="price" required>
+    </div>
+    <div class="form-group">
+      <label for="link">Lien</label>
+      <input type="url" class="form-control" id="link" name="link" placeholder="https://example.com" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter à la wishlist</button>
+    <button type="button" class="btn btn-secondary" id="cancel-btn">Annuler</button>
+  </form>
   <!-- <li class="list-group-item">Cras justo odio</li>
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item">Morbi leo risus</li>
@@ -49,5 +72,15 @@
           item.querySelector('.item-details').style.display = 'none';
       });
   });
+
+  document.getElementById('add-item-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('add-item-form').style.display = 'block';
+});
+
+document.getElementById('cancel-btn').addEventListener('click', function() {
+    document.getElementById('add-item-form').style.display = 'none';
+});
+
 </script>
   {% endblock content %}
