@@ -9,7 +9,7 @@ class Item(models.Model):
         related_name='have_create', blank=True, null=True)
     description = models.TextField()
     price = models.FloatField(blank=True, null=True)
-    link = models.URLField(blank=True, null=True)
+    link = models.URLField(blank=True, null=True, max_length=500)
     bought = models.BooleanField(default=False)
     buyer = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING,
@@ -29,7 +29,7 @@ class Wishlist(models.Model):
     owner = models.OneToOneField(settings.AUTH_USER_MODEL,
                                  on_delete=models.CASCADE,
                                  related_name='wishlist')
-    items = models.ManyToManyField(Item, null=True)
+    items = models.ManyToManyField(Item, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def add_item(self, item):
